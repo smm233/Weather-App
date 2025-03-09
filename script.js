@@ -15,8 +15,6 @@ async function getWeather(city) {
 
 }
 
-getWeather("Davao"); //displays Davao city weather first
-
 searchBtn.addEventListener("click", ()=>{
     getWeather(searchBar.value);
 });
