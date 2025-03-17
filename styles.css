@@ -15,7 +15,7 @@ body {
     max-width: 470px;
     background: linear-gradient(135deg, #654ea3, #eaafc8);
     color: #fff;
-    margin: 40px auto;
+    margin: 35px auto;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -39,6 +39,10 @@ body {
     flex: 1;
     margin-right: 16px;
     font-size: 18px;
+}
+
+.description {
+    color: #333;
 }
 
 .search-bar button {
