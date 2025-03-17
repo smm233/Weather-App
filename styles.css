@@ -41,10 +41,6 @@ body {
     font-size: 18px;
 }
 
-.description {
-    color: #333;
-}
-
 .search-bar button {
     border: 0;
     outline: 0;
@@ -87,8 +83,8 @@ body {
     padding: 0.2em 0.6em;
     border-radius: 30px;
     height: fit-content;
-    color: #fff;
-    background: #666;
+    color: #333;
+    background: #fff;
 }
 
 .details {
