@@ -30,7 +30,11 @@ async function getWeather(city) {
         document.querySelector(".weather").style.display = "block";
         document.querySelector(".error").style.display = "none";
         document.querySelector(".description").innerHTML = data.weather[0].description.toUpperCase();
-        document.querySelector(".country").innerHTML = data.sys.country;
+        if(data.sys.country) {
+            document.querySelector(".country").innerHTML = data.sys.country;
+        } else {
+            document.querySelector(".country").style.display = "none";
+        }
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
