@@ -75,6 +75,22 @@ body {
     margin-top: -10px ;
 }
 
+.location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.country {
+    font-size: 0.9em;
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    height: fit-content;
+    color: #fff;
+    background: #666;
+}
+
 .details {
     display: flex;
     align-items: center;
