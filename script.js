@@ -3,6 +3,7 @@ const api_url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=
 const searchBar = document.querySelector(".search-bar input");
 const searchBtn = document.querySelector(".search-bar button");
 const weatherIcon = document.querySelector(".weather-icon");
+const weatherCard = document.querySelector(".weather-card");
 
 
 async function getWeather(city) {
@@ -13,20 +14,37 @@ async function getWeather(city) {
         document.querySelector(".weather").style.display = "none";
         document.querySelector(".description").style.display = "none";
     } else {
+        //weather icon
         weatherIcon.src = "images/" + data.weather[0].icon + ".svg";
-        // if(data.weather[0].main == "Clouds") {
-        //     weatherIcon.src = "images/clouds.png";
-        // } else if(data.weather[0].main == "Clear") {
-        //     weatherIcon.src = "images/clear.png";
-        // } else if(data.weather[0].main == "Rain") {
-        //     weatherIcon.src = "images/rain.png";
-        // } else if(data.weather[0].main == "Drizzle") {
-        //     weatherIcon.src = "images/drizzle.png";
-        // } else if(data.weather[0].main == "Mist") {
-        //     weatherIcon.src = "images/mist.png";
-        // } else if(data.weather[0].main == "Snow") {
-        //     weatherIcon.src = "images/snow.png";
-        // }
+
+        //background color match to weather
+        if(data.weather[0].main == "Clouds") {
+            if(data.weather[0].icon.includes("d")) {
+                weatherCard.style.background = "linear-gradient(135deg, #57a0ee, #c6deff)"; //cloudy day
+            } else {
+                weatherCard.style.background = "linear-gradient(135deg, #4286f4, #373B44)"; //cloudy night
+            }
+        } else if(data.weather[0].main == "Clear") {
+            if(data.weather[0].icon.includes("d")) {
+                weatherCard.style.background = "linear-gradient(135deg, #ee0979, #ff6a00, #f8b500)"; //clear day (bro i cant find any good gradients hnggg)
+            } else {
+                weatherCard.style.background = "linear-gradient(135deg, #0f0c29, #302b63, #24243e)"; //clear night
+            }
+        } else if(data.weather[0].main == "Rain") {
+            weatherCard.style.background = "linear-gradient(135deg, #536976, #292E49)"; 
+        } else if(data.weather[0].main == "Drizzle") {
+            weatherCard.style.background = "linear-gradient(135deg, #606c88, #3f4c6b)";
+        } else if(data.weather[0].main == "Mist") {
+            weatherCard.style.background = "linear-gradient(135deg, #606c88, #3f4c6b)";
+        } else if(data.weather[0].main == "Snow") {
+            if(data.weather[0].icon.includes("d")) {
+                weatherCard.style.background = "linear-gradient(135deg, #2C5364, #859398)"; //snow day
+            } else {
+                weatherCard.style.background = "linear-gradient(135deg, #141E30, #243B55)"; //snow night
+            }
+        }
+
+
         document.querySelector(".weather").style.display = "block";
         document.querySelector(".error").style.display = "none";
         document.querySelector(".description").innerHTML = data.weather[0].description.toUpperCase();
